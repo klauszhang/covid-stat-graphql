@@ -1,6 +1,13 @@
 extend type Query {
   countries: [Country!]!
   country(name: String!): Country
+  top10MostAffectedCountries: [Country!]!
+  totalCases: Int!
+}
+
+extend type Mutation {
+  deleteCountry(name: String!): [Country!]!
+  updateCountryCases(name: String!, cases: Int!): [Country!]!
 }
 
 type CountryInfo {
