@@ -9,4 +9,9 @@ async function getCountries() {
   return JSON.parse(response.data)
 }
 
-module.exports = { getCountries }
+async function getCountry(name) {
+  const response = await client.get(`/countries/${name}`)
+  return JSON.parse(response.data)
+}
+
+module.exports = { getCountries, getCountry }

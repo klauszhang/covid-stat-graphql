@@ -7,13 +7,13 @@ type CountryInfo {
   _id: Int
   iso2: String
   iso3: String
-  lat: Int
-  long: Int
+  lat: Float
+  long: Float
   flag: String
 }
 
 type Country {
-  updated: Int
+  updated: Float
   country: String
   cases: Int
   todayCases: Int
