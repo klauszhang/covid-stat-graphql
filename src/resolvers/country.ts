@@ -1,9 +1,9 @@
-async function countries(_, __, { dataSources }) {
+async function countries(_: any, __: any, { dataSources }: any) {
   const { lmao } = dataSources
   return lmao.getCountries()
 }
 
-function country(_, {name}, { dataSources }) {
+function country(_: any, {name}: any, { dataSources }: any) {
   const { lmao } = dataSources
   return lmao.getCountry(name)
 }
