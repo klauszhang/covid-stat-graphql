@@ -1,19 +1,18 @@
 import { Country } from '../types'
+import { RESTDataSource } from 'apollo-datasource-rest'
+export default class Lmao extends RESTDataSource {
+  constructor() {
+    super()
+    this.baseURL = 'https://corona.lmao.ninja/v2'
+  }
 
-const axios = require('axios')
+  async getCountries(): Promise<Country[]> {
+    const response = await this.get('/countries')
+    return response
+  }
 
-const client = new axios.Axios({
-  baseURL: 'https://corona.lmao.ninja/v2',
-})
-
-async function getCountries(): Promise<Country[]> {
-  const response = await client.get('/countries')
-  return JSON.parse(response.data)
+  async getCountry(name: string): Promise<Country> {
+    const response = await this.get(`/countries/${name}`)
+    return response
+  }
 }
-
-async function getCountry(name: string): Promise<Country> {
-  const response = await client.get(`/countries/${name}`)
-  return JSON.parse(response.data)
-}
-
-module.exports = { getCountries, getCountry }

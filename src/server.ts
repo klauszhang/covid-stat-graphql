@@ -2,7 +2,7 @@ const { ApolloServer } = require('apollo-server')
 const path = require('path')
 const { loadFilesSync } = require('@graphql-tools/load-files')
 const { mergeTypeDefs, mergeResolvers } = require('@graphql-tools/merge')
-const lmaoAPI = require('./services/lmao')
+import LmaoAPI from './services/lmao'
 
 const port = 3001
 
@@ -14,7 +14,7 @@ const server = new ApolloServer({
   resolvers: mergeResolvers(resolvers),
   dataSources: () => {
     return {
-      lmao: lmaoAPI,
+      lmao: new LmaoAPI(),
     }
   },
 })
