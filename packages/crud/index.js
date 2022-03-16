@@ -1,9 +1,9 @@
-var express = require('express')
-var app = express()
-var PORT = 3000
+const express = require('express')
+const app = express()
+const PORT = 3000
 
-var books = require('./mocks/books')
-var authors = require('./mocks/authors')
+const books = require('./mocks/books')
+const authors = require('./mocks/authors')
 
 app.use(express.json({ limit: '50mb' }))
 app.use(express.urlencoded())
