@@ -19,7 +19,7 @@ It uses API from https://corona.lmao.ninja/ and converted it into GraphQL API.
 - Added `yarn workspaces` 
   - `yarn dev` runs both the `crud` mock server and `graphql` server in parallel. (You will need to upgrade to Yarn v3.2.0 (`yarn set version stable`) (Possibly also need `yarn plugin import workspace-tools`))
   - Alternatively, run `yarn graphql-dev` in one tab and `yarn crud-dev` in another.
-- Added a couple of unit tests for services and resolvers
+- Added a couple of unit tests for services and resolvers `yarn graphql-tests`
 - Added resolver / services for mock crud server
   - Can resolve depth e.g:
     book(id: 5) {
