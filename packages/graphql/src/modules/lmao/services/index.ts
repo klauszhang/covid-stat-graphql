@@ -1,6 +1,7 @@
 import { Country } from '../types'
 import { RESTDataSource } from 'apollo-datasource-rest'
-export default class Lmao extends RESTDataSource {
+
+export class Lmao extends RESTDataSource {
   constructor() {
     super()
     this.baseURL = 'https://corona.lmao.ninja/v2'
@@ -16,3 +17,5 @@ export default class Lmao extends RESTDataSource {
     return response
   }
 }
+
+export default Lmao
