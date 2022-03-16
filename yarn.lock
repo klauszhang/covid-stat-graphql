@@ -3191,6 +3191,7 @@ __metadata:
     "@types/lodash": ^4.14.179
     apollo-datasource-rest: ^3.5.1
     apollo-server: ^3.6.1
+    apollo-server-core: ^3.6.4
     cross-env: 5.0.5
     graphql: ^16.2.0
     graphql-depth-limit: ^1.1.0
