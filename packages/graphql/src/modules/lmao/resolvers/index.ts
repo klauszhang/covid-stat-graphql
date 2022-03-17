@@ -1,5 +1,5 @@
 import { UserInputError } from 'apollo-server'
-import { Country } from '../types'
+import { Country } from '../types/country'
 
 const countryResolver = {
   Query: {
@@ -13,13 +13,13 @@ const countryResolver = {
 
     country: function country(
       _: void,
-      { name }: { name: string },
+      params: { name: string },
       { dataSources }: any
     ): Promise<Country> {
-      if (!name) {
+      if (!params?.name) {
         throw new UserInputError('Invalid country name')
       }
-      return dataSources.lmao.getCountry(name)
+      return dataSources.lmao.getCountry(params.name)
     },
   },
 }

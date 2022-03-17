@@ -1,0 +1,11 @@
+{
+  "name": "interview-crud",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "node index.js"
+  },
+  "dependencies": {
+    "cross-env": "5.0.5",
+    "express": "^4.17.3"
+  }
+}
