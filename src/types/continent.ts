@@ -1,5 +1,3 @@
-import { Country } from './country'
-
 export type Continent = {
   updated: number
   cases: number
@@ -18,5 +16,5 @@ export type Continent = {
   activePerOneMillion: number
   recoveredPerOneMillion: number
   criticalPerOneMillion: number
-  countries: Country[]
+  countries: string[]
 }
