@@ -1,4 +1,4 @@
-import { Continent } from '../types'
+import { Continent, Country } from '../types'
 
 const continentResolver = {
   Query: {
@@ -8,6 +8,15 @@ const continentResolver = {
       { dataSources }: any
     ): Promise<Continent> {
       return dataSources.lmao.getContinent(name)
+    },
+  },
+  Continent: {
+    countries: async function (
+      { countries }: Continent,
+      __: void,
+      { dataSources }: any
+    ): Promise<Country[]> {
+      return dataSources.lmao.getCountries(countries)
     },
   },
 }

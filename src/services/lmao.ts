@@ -12,8 +12,10 @@ export default class Lmao extends RESTDataSource {
     return response
   }
 
-  async getCountries(): Promise<Country[]> {
-    const response = await this.get('/countries')
+  async getCountries(countryNames?: string[]): Promise<Country[]> {
+    const response = await this.get('/countries', {
+      query: countryNames,
+    })
     return response
   }
 
