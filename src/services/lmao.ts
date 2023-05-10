@@ -14,7 +14,7 @@ export default class Lmao extends RESTDataSource {
   }
 
   async getCountry(name: string): Promise<Country> {
-    const response = await this.get(`/v3/covid-19/${name}`)
+    const response = await this.get(`/v3/covid-19/countries/${name}`)
     return response
   }
 }
