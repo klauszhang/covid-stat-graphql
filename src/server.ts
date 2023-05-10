@@ -4,19 +4,15 @@ import { startStandaloneServer } from '@apollo/server/standalone';
 import LmaoAPI from './services/lmao'
 import { loadFilesSync } from '@graphql-tools/load-files'
 import path from 'path'
+import { ServerContext } from './context/serverContext';
 
 const port = 3001
 
 const schemas = loadFilesSync(path.join(__dirname, '/schemas'))
 const resolvers = loadFilesSync(path.join(__dirname, '/resolvers'))
 
-interface ServerContext {
-  dataSources: {
-    lmao: LmaoAPI;
-  };
-}
 
-const server = new ApolloServer<ServerContext>({ typeDefs:schemas, resolvers });
+const server = new ApolloServer<ServerContext>({ typeDefs: schemas, resolvers });
 const standAloneServer = startStandaloneServer(server, {
   context: async () => {
     return {
@@ -28,6 +24,6 @@ const standAloneServer = startStandaloneServer(server, {
   listen: { port },
 });
 
-standAloneServer.then(()=>{
+standAloneServer.then(() => {
   console.log(`🚀  Server ready at http://localhost:${port}`);
 })

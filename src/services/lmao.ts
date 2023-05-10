@@ -7,9 +7,7 @@ export default class Lmao extends RESTDataSource {
   }
 
   async getCountries(): Promise<Country[]> {
-    console.log(this.baseURL);
     const response = await this.get('/v3/covid-19/countries')
-    console.log(response);
     return response
   }
 

@@ -1,19 +1,19 @@
+import { ServerContext } from '../context/serverContext'
 import { Country } from '../types'
 
 const countryResolver = {
   Query: {
-    countries: async function countries(
+    async countries(
       _: void,
       __: void,
-      { dataSources }: any
+      { dataSources }: ServerContext
     ): Promise<Country[]> {
       return dataSources.lmao.getCountries()
     },
-
-    country: function country(
+    async country(
       _: void,
       { name }: { name: string },
-      { dataSources }: any
+      { dataSources }: ServerContext
     ): Promise<Country> {
       return dataSources.lmao.getCountry(name)
     },
