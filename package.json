@@ -7,10 +7,11 @@
     "dev": "nodemon --config nodemon.json src/server.ts"
   },
   "dependencies": {
+    "@apollo/datasource-rest": "^6.0.0",
+    "@apollo/server": "^4.7.1",
     "@graphql-tools/load-files": "^6.6.1",
     "@graphql-tools/merge": "^8.4.1",
     "@graphql-tools/schema": "^9.0.19",
-    "apollo-server": "^3.6.1",
     "graphql": "^16.6.0",
     "lodash": "^4.17.21"
   },

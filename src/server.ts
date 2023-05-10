@@ -1,4 +1,6 @@
-import { ApolloServer } from 'apollo-server'
+import { ApolloServer } from '@apollo/server';
+import { startStandaloneServer } from '@apollo/server/standalone';
+
 import LmaoAPI from './services/lmao'
 // import resolvers from './resolvers'
 // import schemas from './schemas'
@@ -11,16 +13,24 @@ const port = 3001
 const schemas = loadFilesSync(path.join(__dirname, '/schemas'))
 const resolvers = loadFilesSync(path.join(__dirname, '/resolvers'))
 
-const server = new ApolloServer({
-  typeDefs: schemas,
-  resolvers,
-  dataSources: () => {
-    return {
-      lmao: new LmaoAPI(),
-    }
-  },
-})
+interface ServerContext {
+  dataSources: {
+    lmao: LmaoAPI;
+  };
+}
 
-server.listen(port, () => {
-  console.log(`server is up and running at http://localhost:${port}`)
+const server = new ApolloServer<ServerContext>({ typeDefs:schemas, resolvers });
+const standAloneServer = startStandaloneServer(server, {
+  context: async () => {
+    return {
+      dataSources: {
+        lmao: new LmaoAPI(),
+      },
+    };
+  },
+  listen: { port },
+});
+
+standAloneServer.then(()=>{
+  console.log(`🚀  Server ready at http://localhost:${port}`);
 })
