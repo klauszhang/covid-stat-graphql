@@ -1,0 +1,14 @@
+extend type Query {
+  country(name: String!): Country
+  vaccineCoverage(name: String!): VaccineCoverage!
+}
+
+type VaccineCoverage {
+  country: String
+  timeline: [DateCoverage]
+}
+
+type DateCoverage {
+  date: String
+  coverage: Float
+}

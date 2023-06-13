@@ -1,5 +1,5 @@
 export type CountryInfo = {
-  _id: number
+  // _id: number
   iso2: string
   iso3: string
   lat: number

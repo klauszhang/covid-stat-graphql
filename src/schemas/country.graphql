@@ -3,7 +3,7 @@ extend type Query {
   country(name: String!): Country
 }
 type CountryInfo {
-  _id: Int
+  # _id: Int
   iso2: String
   iso3: String
   lat: Float
