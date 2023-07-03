@@ -1,0 +1,32 @@
+extend type Query {
+  continents: [Continent!]!
+  continent(name: String!): Continent
+}
+
+type ContinentInfo {
+  lat: Float
+  long: Float
+}
+
+type Continent {
+  updated: Float
+  cases: Int
+  todayCases: Int
+  deaths: Int
+  todayDeaths: Int
+  recovered: Int
+  todayRecovered: Int
+  active: Int
+  critical: Int
+  casesPerOneMillion: Float
+  deathsPerOneMillion: Float
+  tests: Float
+  testsPerOneMillion: Float
+  population: Float
+  continent: String
+  activePerOneMillion: Float
+  recoveredPerOneMillion: Float
+  criticalPerOneMillion: Float
+  continentInfo: ContinentInfo
+  countries: [String!]
+}
